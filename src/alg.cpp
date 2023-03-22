@@ -26,7 +26,7 @@ int countPairs3(int *arr, int len, int value) {
   for (int i = 0; i < len - 1; i++) {
     int righ = len;
     int lef = i;
-    while (righ > lef) {
+    while (lef < righ - 1) {
       int mid = (lef + righ) / 2;
       if (arr[i] + arr[mid] == value) {
         count++;
@@ -38,7 +38,7 @@ int countPairs3(int *arr, int len, int value) {
         midd = mid - 1;
         while (arr[i] + arr[midd] == value && midd > lef) {
           count++;
-          midd++
+          midd-;
         }
         break;
       }
